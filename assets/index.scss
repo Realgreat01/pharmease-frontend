@@ -1,0 +1,90 @@
+@use "./fonts";
+
+// * {
+//   padding: 0;
+//   margin: 0;
+//   box-sizing: border-box;
+//   -webkit-tap-highlight-color: transparent;
+//   font-weight: normal;
+//   --animate-duration: 500ms;
+// }
+
+:root {
+  --animate-duration: 500ms;
+}
+html {
+  scroll-behavior: smooth !important;
+}
+
+body {
+  scroll-behavior: smooth;
+  font-family: "Poppins", system-ui;
+  font-weight: 400;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 7px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  height: 20vh;
+  background: #c1c1c1;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.text-stroke {
+  -webkit-text-stroke: 0.5px #023696; /* Define the width and color of your stroke */
+  color: white; /* Optional: Define the text fill color */
+}
+
+img {
+  object-fit: cover;
+}
+
+input[type="number"] {
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  /* Firefox */
+  ::-moz-scrollbar-track {
+    background-color: transparent;
+  }
+}
+
+.card {
+  transition: box-shadow 0.3s ease;
+  &:hover {
+    box-shadow: 0 5px 15px #7d7d7d4c;
+    /* @apply shadow-brand; */
+  }
+}
+.ghost {
+  opacity: 0.2;
+  background: var(--dark-100);
+}
