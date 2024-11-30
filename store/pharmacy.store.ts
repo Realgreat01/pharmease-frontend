@@ -1,7 +1,4 @@
 import { defineStore } from "pinia";
-import PH_CONSTANTS from "~/constants";
-import { PH_ROUTES } from "~/constants/routes";
-import ApiService from "~/services/api-service.service";
 import { PharmacyService } from "~/services/pharmacy.service";
 
 interface PharmacyStore {

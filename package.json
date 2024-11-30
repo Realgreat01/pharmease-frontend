@@ -10,7 +10,6 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "vue": "latest",
     "@nuxt/devtools": "latest",
     "@nuxt/ui": "^2.19.2",
     "@pinia/nuxt": "^0.7.0",
@@ -26,5 +25,8 @@
     "secure-ls": "^2.0.0",
     "vee-validate": "^4.14.6",
     "yup": "^1.4.0"
+  },
+  "overrides": {
+    "vue": "latest"
   }
 }
