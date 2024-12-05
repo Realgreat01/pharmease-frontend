@@ -1,6 +1,8 @@
 <template>
-  <div class="h-[90vh] flex mx-auto items-center justify-center w-11/12">
-    <p class="text-5xl lg:text-6xl font-bold leading-relaxed text-center">
+  <div
+    class="mx-auto flex min-h-[50vh] w-11/12 items-center justify-center lg:h-[90vh]"
+  >
+    <p class="text-center text-3xl font-bold leading-relaxed lg:text-6xl">
       Connecting <span class="text-primary font-bold">Patients</span> to
       <span class="text-primary font-bold">Pharmacists</span> &
       <span class="text-primary font-bold">Doctors</span> in Minutes
