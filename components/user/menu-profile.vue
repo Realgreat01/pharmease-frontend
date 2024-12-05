@@ -1,32 +1,32 @@
 <template>
-  <div class="border-brand-gray flex h-screen w-[257px] flex-col border-r">
-    <div class="border-brand-gray sticky top-0 h-[76px] border-b p-4">
-      <ph-logo mode="dark" />
-    </div>
-    <div class="flex flex-1 flex-col gap-2 px-4 pt-4">
-      <RouterLink
-        v-for="nav in sidebar"
-        :to="{ name: nav.route }"
-        :class="
-          route.meta.name?.includes(nav.route) ? 'router-link-exact-active' : ''
-        "
-        class="flex gap-x-2 rounded px-4 py-2">
-        <UIcon :name="nav.icon" class="icon h-5 w-5" />
-        <h2 class="">{{ nav.title }}</h2>
-      </RouterLink>
+  <div class="flex flex-1 flex-col gap-2 px-4 pt-4">
+    <RouterLink
+      v-for="nav in sidebar"
+      :to="{ name: nav.route }"
+      @click="$emit('close')"
+      :class="
+        route.meta.name?.includes(nav.route) ? 'router-link-exact-active' : ''
+      "
+      class="flex gap-x-2 rounded px-4 py-2"
+    >
+      <UIcon :name="nav.icon" class="icon h-5 w-5" />
+      <h2 class="">{{ nav.title }}</h2>
+    </RouterLink>
 
-      <div
-        class="flex gap-x-2 rounded px-4 py-2 text-rose-600"
-        @click="logOutUser">
-        <UIcon name="mdi-light-logout" class="icon h-5 w-5" />
-        <h2>Logout</h2>
-      </div>
+    <div
+      class="flex gap-x-2 rounded px-4 py-2 text-rose-600"
+      @click="logOutUser"
+    >
+      <UIcon name="mdi-light-logout" class="icon h-5 w-5" />
+      <h2>Logout</h2>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { PH_ROUTES } from "~/constants/routes";
+defineEmits(["close"]);
+
 const route = useRoute();
 const router = useRouter();
 

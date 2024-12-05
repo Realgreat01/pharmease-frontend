@@ -1,13 +1,20 @@
 export class PH_ROUTES {
-  static HOME = 'home';
-  static LOGIN = 'login';
-  static REGISTER = 'register';
+  static HOME = "home";
+  static LOGIN = "login";
+  static REGISTER = "register";
 
   static DASHBOARD = {
-    HOME: 'dashboard-home',
-    ORDERS: 'dashboard-orders',
-    CONSULTATIONS: 'dashboard-consultations',
-    NEARBY: 'dashboard-nearby',
-    HISTORY: 'dashboard-history',
+    HOME: "dashboard-home",
+    ORDERS: "dashboard-orders",
+    CONSULTATIONS: "dashboard-consultations",
+    NEARBY: "dashboard-nearby",
+    HISTORY: "dashboard-history",
+  };
+
+  static DOCTOR = {
+    DASHBOARD: "doctors dashboard",
+  };
+  static PHARMACIST = {
+    DASHBOARD: "pharmacist dashboard",
   };
 }

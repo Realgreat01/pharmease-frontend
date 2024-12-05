@@ -1,10 +1,10 @@
 <template>
   <UContainer class="no-scrollbar relative flex">
-    <LayoutsUserSidebar
+    <LayoutsDoctorSidebar
       class="sticky top-0 hidden !w-[257px] !min-w-[257px] !max-w-[257px] lg:block"
     />
     <div class="flex-1">
-      <LayoutsUserNavbar class="sticky top-0 z-10 bg-white" />
+      <LayoutsDoctorNavbar class="sticky top-0 z-10 bg-white" />
       <div
         class="no-scrollbar max-h-[ calc(100vh-76px)] w-full overflow-y-scroll p-4"
       >

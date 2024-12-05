@@ -1,6 +1,6 @@
 export default defineAppConfig({
   ui: {
-    primary: "#0ABF55",
+    primary: "brand",
     gray: "neutral",
     fonts: {
       defaults: {
@@ -13,7 +13,7 @@ export default defineAppConfig({
         loadingIcon: "i-uiw-loading",
       },
       base: "h-10",
-      rounded: "rounded-full",
+      rounded: "rounded",
       font: "font-semibold",
     },
 
