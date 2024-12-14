@@ -1,0 +1,15 @@
+export enum DosageForm {
+  TABLET = "Tablet",
+  SYRUP = "Syrup",
+  INJECTION = "Injection",
+  CAPSULE = "Capsule",
+  CREAM = "Cream",
+  OINTMENT = "Ointment",
+  GEL = "Gel",
+  DROPS = "Drops",
+  POWDER = "Powder",
+  SPRAY = "Spray",
+  SUPPOSITORY = "Suppository",
+  PATCH = "Patch",
+  INHALER = "Inhaler",
+}

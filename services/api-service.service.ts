@@ -43,7 +43,7 @@ export default class ApiService {
 
   // Initialize interceptors statically
   static initializeInterceptors() {
-    ApiService.http.interceptors.request.use(config => {
+    ApiService.http.interceptors.request.use((config) => {
       const accessToken = qhSecuredLS.get(QH_CONSTANTS.AUTH_TOKEN);
       if (accessToken) {
         config.headers["Authorization"] = `Bearer ${accessToken}`;

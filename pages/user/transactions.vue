@@ -3,25 +3,14 @@
     <div class="flex items-center justify-between py-8">
       <h2 class="text-2xl font-semibold">Nearby Pharmacy</h2>
     </div>
-    <ph-card>
-      <div class="mb-4 grid grid-cols-4 border-b pb-4">
-        <div
-          class="flex items-center text-sm font-medium capitalize"
-          v-for="item in Object.keys(userHistory[0]).slice(0, 4)">
-          {{ item.replaceAll("_", " ") }}
-        </div>
-      </div>
-      <div class="flex flex-col gap-4">
-        <div class="border-b text-xs capitalize" v-for="item in userHistory">
-          <div class="grid grid-cols-4">
-            <h2 class="">{{ item.date.toISOString() }}</h2>
-            <h2 class="">{{ item.activity }}</h2>
-            <h2 class="">{{ item.item }}</h2>
-            <h2 class="">{{ item.cost }}</h2>
-          </div>
-        </div>
-      </div>
-    </ph-card>
+    <UTable :rows="activities" :columns="rows">
+      <template #date-data="{ row }">
+        {{ phDates.formatDate(row.date) }}
+      </template>
+      <template #cost-data="{ row }">
+        {{ row.cost }}
+      </template>
+    </UTable>
   </div>
 </template>
 
@@ -34,7 +23,7 @@ definePageMeta({
   name: PH_ROUTES.DASHBOARD.HISTORY,
 });
 
-const userHistory = ref([
+const activities = ref([
   {
     date: new Date(),
     activity: "Bought Drugs",
@@ -47,6 +36,13 @@ const userHistory = ref([
     item: "Dr Adelati",
     cost: 2000,
   },
+]);
+
+const rows = ref([
+  { key: "id", label: "ID" },
+  { key: "date", label: "Date" },
+  { key: "activity", label: "Activity" },
+  { key: "cost", label: "Cost" },
 ]);
 </script>
 

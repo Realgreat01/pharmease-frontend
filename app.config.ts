@@ -25,5 +25,9 @@ export default defineAppConfig({
       },
       base: "disabled:cursor-not-allowed disabled:opacity-50 focus:outline-none border-0 border-gray-50",
     },
+
+    table: {
+      wrapper: "relative overflow-x-auto border rounded-xl",
+    },
   },
 });

@@ -5,7 +5,8 @@
         :schema
         :state="credentials"
         class="hide-scrollbar mx-auto grid w-full grid-cols-2 flex-col gap-4 p-2"
-        @submit.prevent="handleSubmit($event, registerUser)">
+        @submit.prevent="handleSubmit($event, registerUser)"
+      >
         <UFormGroup label="Email" name="email" required block>
           <UInput v-model="credentials.email" class="w-full" />
         </UFormGroup>
@@ -25,7 +26,8 @@
             placeholder="Password"
             required
             :type="showPassword ? 'text' : 'password'"
-            :ui="{ icon: { trailing: { pointer: '' } } }">
+            :ui="{ icon: { trailing: { pointer: '' } } }"
+          >
             <template #trailing>
               <UButton
                 variant="link"
@@ -34,7 +36,8 @@
                 aria-label="show ? 'Hide password' : 'Show password'"
                 :aria-pressed="showPassword"
                 aria-controls="password"
-                @click="showPassword = !showPassword" />
+                @click="showPassword = !showPassword"
+              />
             </template>
           </UInput>
         </UFormGroup>
@@ -44,7 +47,8 @@
             placeholder="Password"
             required
             :type="showConfirmPassword ? 'text' : 'password'"
-            :ui="{ icon: { trailing: { pointer: '' } } }">
+            :ui="{ icon: { trailing: { pointer: '' } } }"
+          >
             <template #trailing>
               <UButton
                 variant="link"
@@ -55,7 +59,8 @@
                 aria-label="show ? 'Hide password' : 'Show password'"
                 :aria-pressed="showConfirmPassword"
                 aria-controls="password"
-                @click="showConfirmPassword = !showConfirmPassword" />
+                @click="showConfirmPassword = !showConfirmPassword"
+              />
             </template>
           </UInput>
         </UFormGroup>
@@ -113,11 +118,11 @@ const schema = Yup.object({
     .min(6, "password must be at least 6 characters long")
     .matches(
       /(?=.*[a-z])/,
-      "password must contain at least one lowercase letter"
+      "password must contain at least one lowercase letter",
     )
     .matches(
       /(?=.*[A-Z])/,
-      "password must contain at least one uppercase letter"
+      "password must contain at least one uppercase letter",
     )
     .matches(/(?=.*[0-9])/, "password must contain at least one number"),
   confirmPassword: Yup.string()
@@ -129,27 +134,10 @@ const schema = Yup.object({
 
 const router = useRouter();
 const loginUser = () => router.push({ name: PH_ROUTES.LOGIN });
-const rules = ref({
-  password: Yup.string()
-    .required("password is required")
-    .min(6, "password must be at least 6 characters long")
-    .matches(
-      /(?=.*[a-z])/,
-      "password must contain at least one lowercase letter"
-    )
-    .matches(
-      /(?=.*[A-Z])/,
-      "password must contain at least one uppercase letter"
-    )
-    .matches(/(?=.*[0-9])/, "password must contain at least one number"),
-  confirmPassword: Yup.string()
-    .required("please confirm your password")
-    .test("passwords-match", "passwords does not match", function (value) {
-      return credentials.value.password === value;
-    }),
-});
 
-const registerUser = async (field: any) => {};
+const registerUser = async (field: any) => {
+  console.log({ field, credentials: credentials.value });
+};
 </script>
 
 <style scoped></style>

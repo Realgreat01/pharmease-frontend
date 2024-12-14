@@ -21,6 +21,22 @@
 
 <script setup lang="ts">
 const route = useRoute();
+
+function deleteAllCookies() {
+  document.cookie.split(";").forEach(function (c) {
+    document.cookie = c
+      .replace(/^ +/, "")
+      .replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
+  });
+}
+
+onMounted(() => {
+  if (import.meta.client) {
+    localStorage.clear();
+    sessionStorage.clear();
+    deleteAllCookies();
+  }
+});
 </script>
 
 <style scoped></style>
