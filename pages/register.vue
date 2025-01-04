@@ -1,14 +1,23 @@
 <template>
-  <ph-card class="w-full">
+  <UCard class="w-full">
     <VeeForm v-slot="{ handleSubmit, isSubmitting, errors }">
       <UForm
         :schema
         :state="credentials"
-        class="hide-scrollbar mx-auto grid w-full grid-cols-2 flex-col gap-4 p-2"
+        class="hide-scrollbar mx-auto grid w-full flex-col gap-4 p-2 md:grid-cols-2"
         @submit.prevent="handleSubmit($event, registerUser)"
       >
-        <UFormGroup label="Email" name="email" required block>
+        <UFormGroup
+          label="Email"
+          name="email"
+          required
+          block
+          class="sm:col-span-2"
+        >
           <UInput v-model="credentials.email" class="w-full" />
+        </UFormGroup>
+        <UFormGroup label="Username" name="username" required block>
+          <UInput v-model="credentials.username" class="w-full" />
         </UFormGroup>
         <UFormGroup name="firstname" label="First Name" required block>
           <UInput v-model="credentials.firstname" class="w-full" />
@@ -78,13 +87,14 @@
       Already a member ?
       <span class="text-primary" @click="loginUser">Login</span>
     </h2>
-  </ph-card>
+  </UCard>
 </template>
 
 <script setup lang="ts">
 import { Form as VeeForm } from "vee-validate";
 import * as Yup from "yup";
 import { PH_ROUTES } from "~/constants/routes";
+import { useAuthStore } from "~/store/auth.store";
 
 definePageMeta({
   name: PH_ROUTES.REGISTER,
@@ -94,16 +104,17 @@ definePageMeta({
     "Create an account to start getting fast services across pharmacies through us!",
 });
 
+const authStore = useAuthStore();
 const showPassword = ref(false);
 const showConfirmPassword = ref(false);
 const credentials = ref({
-  password: "",
-  confirmPassword: "",
-  firstname: "",
-  lastname: "",
-  email: "",
-  phone_number: "",
-  username: "",
+  password: "Real4great",
+  confirmPassword: "Real4great",
+  firstname: "Samson",
+  lastname: "Ikuomenisan",
+  email: "samsonrealgreat@gmail.com",
+  phone_number: "+2347062215229",
+  username: "realgreat",
 });
 
 const schema = Yup.object({
@@ -136,7 +147,7 @@ const router = useRouter();
 const loginUser = () => router.push({ name: PH_ROUTES.LOGIN });
 
 const registerUser = async (field: any) => {
-  console.log({ field, credentials: credentials.value });
+  await authStore.register(credentials.value);
 };
 </script>
 

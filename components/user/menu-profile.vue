@@ -14,8 +14,8 @@
     </RouterLink>
 
     <div
-      class="flex gap-x-2 rounded px-4 py-2 text-rose-600"
-      @click="logOutUser"
+      class="flex cursor-pointer gap-x-2 rounded px-4 py-2 text-rose-600"
+      @click="authStore.logout"
     >
       <UIcon name="mdi-light-logout" class="icon h-5 w-5" />
       <h2>Logout</h2>
@@ -25,12 +25,13 @@
 
 <script setup lang="ts">
 import { PH_ROUTES } from "~/constants/routes";
+import { useAuthStore } from "~/store/auth.store";
 defineEmits(["close"]);
 
 const route = useRoute();
 const router = useRouter();
 
-const logOutUser = async () => {};
+const authStore = useAuthStore();
 
 interface Sidebar {
   title: string;

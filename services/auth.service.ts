@@ -1,4 +1,4 @@
-import type { LOGIN_PAYLOAD, REGISTER_USER_PAYLOAD } from "~/types/auth";
+import type { LoginPayload, SignUpPayload } from "~/types/auth";
 import ApiService from "./api-service.service";
 
 export class AuthService {
@@ -8,7 +8,7 @@ export class AuthService {
       url: "/auth/user",
     });
   };
-  static login = async (data: LOGIN_PAYLOAD) => {
+  static login = async (data: LoginPayload) => {
     return await ApiService.run({
       method: ApiService.POST,
       url: "/auth/login",
@@ -16,10 +16,10 @@ export class AuthService {
     });
   };
 
-  static register = async (data: REGISTER_USER_PAYLOAD) => {
+  static register = async (data: SignUpPayload) => {
     return await ApiService.run({
       method: ApiService.POST,
-      url: "/auth/register",
+      url: "/auth/signup",
       data,
     });
   };
