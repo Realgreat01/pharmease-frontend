@@ -108,13 +108,13 @@ const authStore = useAuthStore();
 const showPassword = ref(false);
 const showConfirmPassword = ref(false);
 const credentials = ref({
-  password: "Real4great",
-  confirmPassword: "Real4great",
-  firstname: "Samson",
-  lastname: "Ikuomenisan",
-  email: "samsonrealgreat@gmail.com",
-  phone_number: "+2347062215229",
-  username: "realgreat",
+  password: "",
+  confirmPassword: "",
+  firstname: "",
+  lastname: "",
+  email: "",
+  phone_number: "",
+  username: "",
 });
 
 const schema = Yup.object({
