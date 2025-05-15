@@ -3,7 +3,11 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   ssr: false,
-  modules: ["@nuxt/ui", "@pinia/nuxt", "pinia-plugin-persistedstate/nuxt"],
+  modules: [
+    "@nuxt/ui",
+    "pinia-plugin-persistedstate/nuxt",
+    "@pinia/nuxt",
+  ],
   css: ["~/assets/index.scss", "~/assets/main.css"],
   colorMode: {
     preference: "light",
