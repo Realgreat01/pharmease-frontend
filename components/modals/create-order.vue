@@ -15,36 +15,24 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
-import { getDatabase, ref as dbRef, push } from 'firebase/database';
-import { getAuth } from 'firebase/auth';
+import { ref } from "vue";
+import { useDrugStore } from "@/store/drugs.store";
 
-const drugName = ref('');
-const quantity = ref('');
+const drugName = ref("");
+const quantity = ref("");
+const { drugs } = storeToRefs(useDrugStore());
 
 const createOrder = async () => {
-  const db = getDatabase();
-  const auth = getAuth();
-  const user = auth.currentUser;
+  const newOrder = {
+    drug_name: drugName.value,
+    pharmacy: "Health Pharmacy",
+    quantity: quantity.value,
+    amount: 10000,
+    status: "Pending",
+  };
 
-  if (user) {
-    const ordersRef = dbRef(db, `orders/${user.uid}`);
-
-    const newOrder = {
-      drug_name: drugName.value,
-      pharmacy: 'Health Pharmacy',
-      quantity: quantity.value,
-      amount: 10000,
-      status: 'Pending',
-    };
-
-    await push(ordersRef, newOrder);
-
-    drugName.value = '';
-    quantity.value = '';
-  } else {
-    console.error('User is not authenticated');
-  }
+  drugName.value = "";
+  quantity.value = "";
 };
 </script>
 

@@ -23,6 +23,12 @@ export const useOrderStore = defineStore("OrderStore", {
   },
 
   actions: {
+    async createOrder(order: Order) {
+      const res = await OrderService.createOrder(order);
+      if (res.success) {
+        this.getOrders();
+      }
+    },
     async getOrders() {
       const res = await OrderService.orders();
       if (res.success) {
