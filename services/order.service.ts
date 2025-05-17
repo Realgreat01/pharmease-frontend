@@ -8,6 +8,13 @@ export class OrderService {
       data: order,
     });
   };
+  static initOrderPayment = async (orderId: string) => {
+    return await ApiService.run({
+      method: ApiService.POST,
+      url: "/payment/init",
+      data: { orderId },
+    });
+  };
   static orders = async () => {
     return await ApiService.run({
       method: ApiService.GET,

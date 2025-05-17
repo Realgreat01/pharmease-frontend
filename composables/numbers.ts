@@ -8,7 +8,7 @@ export const phNumbers = {
   },
 
   formatCurrency(value: number, currency = "USD") {
-    const formattedNumber = Number(value / 100);
+    const formattedNumber = Number(value);
 
     const formatter = new Intl.NumberFormat("en-US", {
       style: "currency",
@@ -20,12 +20,12 @@ export const phNumbers = {
     });
 
     if (formattedNumber >= 1e12) {
-      return formatter.format(formattedNumber / 1e9) + "B";
+      return formatter.format(formattedNumber / 1e11) + "T";
     }
     if (formattedNumber >= 1e9) {
-      return formatter.format(formattedNumber / 1e6) + "M";
+      return formatter.format(formattedNumber / 1e9) + "B";
     } else if (formattedNumber >= 1e6) {
-      return formatter.format(formattedNumber / 1e3) + "k";
+      return formatter.format(formattedNumber / 1e6) + "M";
     } else {
       return formatter.format(formattedNumber);
     }

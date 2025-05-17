@@ -3,11 +3,7 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   ssr: false,
-  modules: [
-    "@nuxt/ui",
-    "pinia-plugin-persistedstate/nuxt",
-    "@pinia/nuxt",
-  ],
+  modules: ["@nuxt/ui", "@pinia/nuxt", "pinia-plugin-persistedstate/nuxt"],
   css: ["~/assets/index.scss", "~/assets/main.css"],
   colorMode: {
     preference: "light",
@@ -15,3 +11,4 @@ export default defineNuxtConfig({
 
   compatibilityDate: "2024-11-07",
 });
+
